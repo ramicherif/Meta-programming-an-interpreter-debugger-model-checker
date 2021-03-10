@@ -1,0 +1,5 @@
+	// BeginInjectInto fr.unice.polytech.si5.polycreate.rewritingrules.OperationAspect#double execute() from fr.unice.polytech.si5.polycreate.rewritingrules.GoForwardAspect
+		if (_self instanceof fr.unice.polytech.si5.polycreate.abstractsyntax.polycreate.GoForward){
+			result = fr.unice.polytech.si5.polycreate.rewritingrules.GoForwardAspect.execute((fr.unice.polytech.si5.polycreate.abstractsyntax.polycreate.GoForward)_self);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.polycreate.rewritingrules.OperationAspect#double execute() from fr.unice.polytech.si5.polycreate.rewritingrules.GoForwardAspect

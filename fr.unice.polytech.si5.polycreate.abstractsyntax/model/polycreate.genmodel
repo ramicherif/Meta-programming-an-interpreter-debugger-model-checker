@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/fr.unice.polytech.si5.polycreate.abstractsyntax/src-gen"
+    creationIcons="false" editDirectory="/fr.unice.polytech.si5.polycreate.abstractsyntax.edit/src-gen"
+    editorDirectory="/fr.unice.polytech.si5.polycreate.abstractsyntax.editor/src-gen"
+    modelPluginID="fr.unice.polytech.si5.polycreate.abstractsyntax" modelName="Polycreate"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>polycreate.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Polycreate" basePackage="fr.unice.polytech.si5.polycreate.abstractsyntax"
+      disposableProviderFactory="true" ecorePackage="polycreate.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="polycreate.ecore#//VarType">
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/PositionSensor"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/TouchSensor"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/DistanceSensor"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/Camera"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/Receiver"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/GPS"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//VarType/Motor"/>
+    </genEnums>
+    <genClasses ecoreClass="polycreate.ecore#//NamedELement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//NamedELement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//Polycreate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//Polycreate/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//Polycreate/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//Variable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//Variable/initialValue"/>
+      <genOperations ecoreOperation="polycreate.ecore#//Variable/initialize"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//Operation">
+      <genOperations ecoreOperation="polycreate.ecore#//Operation/execute"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//Instruction"/>
+    <genClasses ecoreClass="polycreate.ecore#//ControlPolycreate"/>
+    <genClasses ecoreClass="polycreate.ecore#//GripperSensor"/>
+    <genClasses ecoreClass="polycreate.ecore#//RightSensor"/>
+    <genClasses ecoreClass="polycreate.ecore#//LeftSensor"/>
+    <genClasses ecoreClass="polycreate.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//Object/position"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//GoForward"/>
+    <genClasses ecoreClass="polycreate.ecore#//GoBackward"/>
+    <genClasses ecoreClass="polycreate.ecore#//OpenGripper"/>
+    <genClasses ecoreClass="polycreate.ecore#//CloseGripper"/>
+    <genClasses ecoreClass="polycreate.ecore#//Turn"/>
+    <genClasses ecoreClass="polycreate.ecore#//Stop"/>
+    <genClasses ecoreClass="polycreate.ecore#//StructuralCondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//StructuralCondition/then"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//StructuralCondition/else"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//StructuralCondition/if"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//Condition"/>
+    <genClasses ecoreClass="polycreate.ecore#//Comparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//Comparison/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//Comparison/leftVariable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//Comparison/rightVariable"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

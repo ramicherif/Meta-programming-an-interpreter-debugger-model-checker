@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="polycreate" nsURI="http://www.polytech.unice.fr/polycreate"
+    nsPrefix="polycreate">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedELement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Polycreate" eSuperTypes="#//NamedELement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
+        eType="#//Variable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//NamedELement">
+    <eOperations name="initialize"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VarType"
+        defaultValueLiteral="int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true">
+    <eOperations name="execute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true" eSuperTypes="#//Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlPolycreate" abstract="true" eSuperTypes="#//Operation"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="VarType">
+    <eLiterals name="int"/>
+    <eLiterals name="double" value="1"/>
+    <eLiterals name="PositionSensor" value="2"/>
+    <eLiterals name="TouchSensor" value="3"/>
+    <eLiterals name="DistanceSensor" value="4"/>
+    <eLiterals name="Camera" value="5"/>
+    <eLiterals name="Receiver" value="6"/>
+    <eLiterals name="GPS" value="7"/>
+    <eLiterals name="Motor" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GripperSensor" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RightSensor" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LeftSensor" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//VarType"
+        defaultValueLiteral="GPS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoForward" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoBackward" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenGripper" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CloseGripper" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralCondition" eSuperTypes="#//ControlPolycreate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" upperBound="-1" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" upperBound="-1" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" lowerBound="1" upperBound="-1"
+        eType="#//Condition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//VarType"
+        defaultValueLiteral="double"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftVariable" lowerBound="1"
+        eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightVariable" lowerBound="1"
+        eType="#//Variable"/>
+  </eClassifiers>
+</ecore:EPackage>
